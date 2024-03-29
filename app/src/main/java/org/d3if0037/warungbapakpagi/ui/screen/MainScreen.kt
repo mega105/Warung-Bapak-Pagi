@@ -15,12 +15,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -29,6 +31,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -67,19 +70,23 @@ fun MainScreen() {
 
 @Composable
 fun ScreenContent(modifier: Modifier){
+    var catatan by rememberSaveable { mutableStateOf("") }
+    var catatanError by rememberSaveable { mutableStateOf("") }
+
 
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             contentPadding = PaddingValues(2.dp)
         ) {
             items(4) { index ->
-                var isChecked by remember { mutableStateOf(false) } // Buat mutable state untuk status checkbox
-                var isSelected by remember { mutableStateOf(false) } // Buat mutable state untuk status seleksi kartu
+                var isChecked by rememberSaveable { mutableStateOf(false) } // Buat mutable state untuk status checkbox
+                var isSelected by rememberSaveable { mutableStateOf(false) } // Buat mutable state untuk status seleksi kartu
 
                 Card(
                     modifier = Modifier
@@ -87,9 +94,14 @@ fun ScreenContent(modifier: Modifier){
                         .padding(10.dp)
                         .clickable { // Tambahkan clickable modifier pada Card
                             isSelected = !isSelected // Toggle status seleksi ketika Card diklik
-                            isChecked = isSelected // Set status checkbox sesuai dengan status seleksi
+                            isChecked =
+                                isSelected // Set status checkbox sesuai dengan status seleksi
                         }
-                        .border(2.dp, if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent, shape = RoundedCornerShape(10.dp)), // Tambahkan border dengan kondisional berdasarkan status seleksi
+                        .border(
+                            2.dp,
+                            if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent,
+                            shape = RoundedCornerShape(10.dp)
+                        ), // Tambahkan border dengan kondisional berdasarkan status seleksi
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 10.dp
                     ),
@@ -141,6 +153,23 @@ fun ScreenContent(modifier: Modifier){
                 }
             }
         }
+
+        OutlinedTextField(
+            value = catatan,
+            onValueChange = {catatan = it},
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Button(
+            onClick = { /*TODO*/ },
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(10.dp)
+
+
+        ) {
+            Text(text = "test") // jangan lupa ganti
+        }
+
 
     }
 

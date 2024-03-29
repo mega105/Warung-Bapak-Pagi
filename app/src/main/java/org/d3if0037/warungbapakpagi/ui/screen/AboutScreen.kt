@@ -16,38 +16,38 @@ import androidx.compose.ui.unit.dp
 import org.d3if0037.warungbapakpagi.R
 import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
 
-//@OptIn(ExperimentalMaterial3Api::class)
-//@Composable
-//fun AboutScreen() {
-//    Scaffold(
-//        topBar = {
-//            TopAppBar(
-//                title = {
-//                    Text(text = stringResource(id = R.string.app_name))
-//                },
-//                colors = TopAppBarDefaults.mediumTopAppBarColors(
-//                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-//                    titleContentColor = MaterialTheme.colorScheme.primary
-//                )
-//            )
-//        }
-//    ) { padding ->
-//        Text(
-//            text = stringResource(id = R.string.Test),
-//            modifier = Modifier
-//                .padding(padding)
-//                .padding(16.dp)
-//        )
-//    }
-//}
-//
-//
-//
-//@Preview(showBackground = true)
-//@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
-//@Composable
-//fun AboutPreview() {
-//    WarungBapakPagiTheme {
-//        AboutScreen()
-//    }
-//}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun AboutScreen() {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(text = stringResource(id = R.string.app_name))
+                },
+                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.primary
+                )
+            )
+        }
+    ) { padding ->
+        Text(
+            text = stringResource(id = R.string.Test),
+            modifier = Modifier
+                .padding(padding)
+                .padding(16.dp)
+        )
+    }
+}
+
+
+
+@Preview(showBackground = true)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+@Composable
+fun AboutPreview() {
+    WarungBapakPagiTheme {
+        AboutScreen()
+    }
+}
