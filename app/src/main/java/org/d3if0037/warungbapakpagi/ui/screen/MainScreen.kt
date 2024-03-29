@@ -2,6 +2,7 @@ package org.d3if0037.warungbapakpagi.ui.screen
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,7 +29,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -79,18 +79,21 @@ fun ScreenContent(modifier: Modifier){
         ) {
             items(4) { index ->
                 var isChecked by remember { mutableStateOf(false) } // Buat mutable state untuk status checkbox
+                var isSelected by remember { mutableStateOf(false) } // Buat mutable state untuk status seleksi kartu
 
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(10.dp)
                         .clickable { // Tambahkan clickable modifier pada Card
-                            isChecked = !isChecked // Toggle status checkbox ketika Card diklik
-                        },
+                            isSelected = !isSelected // Toggle status seleksi ketika Card diklik
+                            isChecked = isSelected // Set status checkbox sesuai dengan status seleksi
+                        }
+                        .border(2.dp, if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent, shape = RoundedCornerShape(10.dp)), // Tambahkan border dengan kondisional berdasarkan status seleksi
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 10.dp
                     ),
-                    shape = RoundedCornerShape(5.dp)
+                    shape = RoundedCornerShape(7.dp)
                 ) {
                     Column {
                         Row(
@@ -98,11 +101,12 @@ fun ScreenContent(modifier: Modifier){
                             horizontalArrangement = Arrangement.End
                         ) {
                             Checkbox(
-                                modifier = Modifier
-                                    .size(24.dp),
                                 checked = isChecked, // Gunakan status yang diperbarui
                                 onCheckedChange = { isChecked = it }, // Perbarui status ketika checkbox diubah
-                                colors = CheckboxDefaults.colors(Purple80)
+                                colors = CheckboxDefaults.colors(Purple80),
+                                modifier = Modifier
+                                    .size(30.dp)
+                                    .alpha(0f)
                             )
                         }
 
@@ -121,7 +125,6 @@ fun ScreenContent(modifier: Modifier){
 
                             Text(
                                 text = "Name ${index + 1}",
-                                color = Color.Black,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 16.sp,
                                 fontFamily = FontFamily.Monospace
@@ -138,7 +141,6 @@ fun ScreenContent(modifier: Modifier){
                 }
             }
         }
-
 
     }
 
