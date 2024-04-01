@@ -34,26 +34,28 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import org.d3if0037.warungbapakpagi.R
 import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun KirimScreen() {
+fun KirimScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
                 navigationIcon = {
-                    IconButton(onClick = { /*TODO*/ }) {
+                    IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = stringResource(id = R.string.Test), // ganti string nya
+                            contentDescription = stringResource(id = R.string.kembali),
                             tint = MaterialTheme.colorScheme.primary
                         )
                     }
                 },
                 title = {
-                    Text(text = stringResource(id = R.string.app_name)) // jangan lupa ganti (bukan nama aplikasi nya, tapi lagi di page apa)
+                    Text(text = stringResource(id = R.string.pageOrder))
                 },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -62,17 +64,12 @@ fun KirimScreen() {
             )
         }
     ) { padding ->
-//        Text(
-//            text = stringResource(id = R.string.Test),
-//            modifier = Modifier
-//                .padding(padding)
-//                .padding(16.dp))
-        ScreenKirim(Modifier.padding(padding))
+        ScreenKirim(Modifier.padding(padding), navController)
     }
 }
 
 @Composable
-fun ScreenKirim(modifier: Modifier) {
+fun ScreenKirim(modifier: Modifier, navController: NavHostController) {
     Column (
         modifier = modifier
             .fillMaxSize()
@@ -82,34 +79,34 @@ fun ScreenKirim(modifier: Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_launcher_background),
-            contentDescription = "ini deskripsi", // nanti ganti
+            painter = painterResource(id = R.drawable.food),
+            contentDescription = stringResource(R.string.gambar_kirim, R.drawable.food), // nanti ganti
             modifier = Modifier.size(250.dp)
         )
         Column (
             modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Disini Header (sebentar ganti)",
+                text = stringResource(id = R.string.header_kirim),
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
             )
             Text(
-                text = "Kami sedang mengirim makanan ke anda, harap ditunggu(jangan lupa ganti)",
+                text = stringResource(id = R.string.deskripsi_kirim),
                 color = Color.Gray,
                 fontSize = 16.sp,
                 textAlign = TextAlign.Center,
 //                modifier = Modifier.padding(horizontal = 24.dp)
             )
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { navController.popBackStack() },
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(10.dp),
             ) {
                 Text(
-                    text = "Kembali ke menu awal (ganti)",
+                    text = stringResource(id = R.string.kembali),
                     modifier = Modifier.padding(vertical = 8.dp)
                 )
             }
@@ -123,6 +120,6 @@ fun ScreenKirim(modifier: Modifier) {
 @Composable
 fun KirimPreview() {
     WarungBapakPagiTheme {
-        KirimScreen()
+        KirimScreen(rememberNavController())
     }
 }

@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Warung Bapak Pagi</string>
-    <string name="Test">Testing bla bla</string>
+    <string name="catatan">Catatan (optional)</string>
+    <string name="input_invalid">Tolong diisi</string>
+    <string name="tentangAplikasi">Tentang Aplikasi</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="bagikan_template">Makanan yang dipilih: %1$s\n\nTotal : %2$d</string>
+    <string name="noItemSelected">Tolong setidaknya pilih satu menu</string>
+    <string name="kembali">Kembali</string>
+    <string name="deskripsi_kirim">Kami sedang mengirim makanan ke anda, harap ditunggu</string>
+    <string name="header_kirim">Makanan anda sedang dikirim</string>
+    <string name="gambar_kirim">Gambar %1$s</string>
+    <string name="gambar_main">Gambar %1$s</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="about">Aplikasi warung bapak pagi adalah sebuah aplikasi antar makanan dengan mudah hanya dengan memilih dan sekali klik kami akan mengantar makanan anda.\n\nAplikasi ini dibuat untuk kelas Mobpro 1\n\nCopyright © 2024 - Adrian Maulana. All rights reserved</string>
+    <string name="pageOrder">Halaman order</string>
+    <string name="pesan">Pesan</string>
+    <string name="order">Kirim</string>
 </resources>

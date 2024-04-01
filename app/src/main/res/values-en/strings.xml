@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Warung Bapak Pagi</string>
+    <string name="catatan">"Notes (optional) "</string>
+    <string name="input_invalid">Please fill in</string>
+    <string name="tentangAplikasi">About Application</string>
+    <string name="about">The Warung Pak Pagi application is an easy food delivery application, just by selecting and one click we will deliver your food.\n\nThis application was created for Mobpro 1 class\n\nCopyright © 2024 - Adrian Maulana. All rights reserved</string>
+    <string name="order">Send</string>
+    <string name="pageOrder">Orders page</string>
+    <string name="bagikan">Share</string>
+    <string name="bagikan_template">Selected food: %1$s\n\nTotal : %2$d</string>
+    <string name="pesan">Order</string>
+    <string name="noItemSelected">Please at least choose one menu</string>
+    <string name="kembali">Back</string>
+    <string name="deskripsi_kirim">We are sending food to you, please wait</string>
+    <string name="header_kirim">"Your food is being delivered "</string>
+    <string name="gambar_kirim">"Image %1$s "</string>
+    <string name="gambar_main">"Image %1$s "</string>
+    <string name="tentang_aplikasi">About Application</string>
+</resources>

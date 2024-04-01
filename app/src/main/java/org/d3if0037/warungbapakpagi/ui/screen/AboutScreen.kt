@@ -19,26 +19,30 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import org.d3if0037.warungbapakpagi.R
 import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AboutScreen() {
+fun AboutScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
                 navigationIcon = {
-                    IconButton(onClick = { /*TODO*/ }) {
+                    IconButton(onClick = {
+                        navController.popBackStack()
+                    }) {
                         Icon(
                             imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = stringResource(id = R.string.Test), // ganti string nya
+                            contentDescription = stringResource(id = R.string.tentang_aplikasi),
                             tint = MaterialTheme.colorScheme.primary
                         )
                     }
                 },
                 title = {
-                    Text(text = stringResource(id = R.string.app_name)) // ganti jadi tentang aplikasi
+                    Text(text = stringResource(id = R.string.app_name))
                 },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -59,9 +63,7 @@ fun ScreenAbout(modifier: Modifier) {
             .padding(20.dp)
     ) {
         Text(
-            text = "Aplikasi warung bapak pagi adalah sebuah aplikasi antar makanan dengan mudah hanya dengan memilih dan sekali klik kami akan mengantar makanan anda.\n" +
-                    "\nAplikasi ini dibuat untuk kelas Mobpro 1\n" +
-                    "\nCopyright © 2024 - Adrian Maulana.\nAll rights reserved "
+            text = stringResource(id = R.string.about)
         )
     }
 }
@@ -71,6 +73,6 @@ fun ScreenAbout(modifier: Modifier) {
 @Composable
 fun AboutPreview() {
     WarungBapakPagiTheme {
-        AboutScreen()
+        AboutScreen(rememberNavController())
     }
 }

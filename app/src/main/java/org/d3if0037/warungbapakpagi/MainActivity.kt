@@ -6,13 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import org.d3if0037.warungbapakpagi.ui.screen.Experiment
+import org.d3if0037.warungbapakpagi.navigation.SetupNavGraph
 //import org.d3if0037.warungbapakpagi.ui.screen.AboutScreen
-import org.d3if0037.warungbapakpagi.ui.screen.MainScreen
 import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //MainScreen()
-                    Experiment()
+                    SetupNavGraph()
                 }
             }
         }
