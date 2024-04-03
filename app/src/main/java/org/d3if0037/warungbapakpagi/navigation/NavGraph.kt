@@ -22,7 +22,7 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController()) {
             AboutScreen(navController)
         }
         composable(route = Screen.Kirim.route) {
-            KirimSpcreen(navController)
+            KirimScreen(navController)
         }
     }
 }
