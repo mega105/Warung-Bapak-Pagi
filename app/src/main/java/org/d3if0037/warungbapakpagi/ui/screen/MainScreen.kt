@@ -120,7 +120,7 @@ fun Content(modifier: Modifier, navController: NavHostController) {
     }
     val totalPrice = pilihMenu.value.sumOf { it.harga }
 
-    Column(
+    Column (
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
@@ -138,6 +138,7 @@ fun Content(modifier: Modifier, navController: NavHostController) {
                         .fillMaxWidth()
                         .padding(10.dp)
                         .clickable {
+
                             isSelected = !isSelected
                             if (isSelected) {
                                 pilihMenu.value.add(makanan)
