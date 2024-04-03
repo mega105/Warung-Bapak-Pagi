@@ -301,10 +301,10 @@ fun Content(modifier: Modifier, navController: NavHostController) {
                 horizontalAlignment = Alignment.End
             ) {
 
-                val totalPrice = pilihMenu.value.sumOf { it.harga }
+                val totalPriceMenu = pilihMenu.value.sumOf { it.harga }
 
                 Text(
-                    text = "Rp $totalPrice",
+                    text = "Rp $totalPriceMenu",
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.SemiBold
                 )
