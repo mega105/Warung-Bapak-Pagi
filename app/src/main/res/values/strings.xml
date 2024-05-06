@@ -16,4 +16,6 @@
     <string name="pageOrder">Halaman order</string>
     <string name="pesan">Pesan</string>
     <string name="order">Kirim</string>
+    <string name="tambah_error">belum bisa</string>
+    <string name="tambah_pesanan">Tambah pesanan</string>
 </resources>

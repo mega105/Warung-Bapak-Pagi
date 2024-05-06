@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import org.d3if0037.warungbapakpagi.ui.screen.AboutScreen
-import org.d3if0037.warungbapakpagi.ui.screen.MainScreen
+import org.d3if0037.warungbapakpagi.ui.screen.OrderScreen
 import org.d3if0037.warungbapakpagi.ui.screen.KirimScreen
 
 @Composable
@@ -16,7 +16,7 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController()) {
         startDestination = Screen.Home.route
     ) {
         composable(route = Screen.Home.route) {
-            MainScreen(navController)
+            OrderScreen(navController)
         }
         composable(route = Screen.About.route) {
             AboutScreen(navController)
