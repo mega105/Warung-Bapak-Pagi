@@ -8,6 +8,8 @@
     <string name="noItemSelected">Tolong setidaknya pilih satu menu</string>
     <string name="kembali">Kembali</string>
     <string name="deskripsi_kirim">Kami sedang mengirim makanan ke anda, harap ditunggu</string>
+    <string name="order_kosong">Silahkan Lakukan Pemesanan</string>
+    <string name="deskripsi_order_kosong">Silahkan melakukan pemesanan terlebih dahulu</string>
     <string name="header_kirim">Makanan anda sedang dikirim</string>
     <string name="gambar_kirim">Gambar %1$s</string>
     <string name="gambar_main">Gambar %1$s</string>
@@ -16,4 +18,9 @@
     <string name="pageOrder">Halaman order</string>
     <string name="pesan">Pesan</string>
     <string name="order">Kirim</string>
+    <string name="tambah_error">Belum bisa</string>
+    <string name="tambah_pesanan">Tambah Pesanan</string>
+    <string name="pesan_hapus">Yakin ingin menghapus pesanan ini?</string>
+    <string name="tombol_hapus">Hapus</string>
+    <string name="tombol_batal">Batal</string>
 </resources>
