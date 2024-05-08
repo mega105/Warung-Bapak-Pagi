@@ -1,6 +1,5 @@
 package org.d3if0037.warungbapakpagi.database
 
-import androidx.compose.ui.input.pointer.PointerId
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -24,5 +23,5 @@ interface OrderDao {
     suspend fun getOrderById(id: Long): Order?
 
     @Query("DELETE FROM `order` WHERE id = :id")
-    suspend fun deleteById(id: Long)
+    suspend fun deleteOrderById(id: Long)
 }
