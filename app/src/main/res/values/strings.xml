@@ -23,4 +23,6 @@
     <string name="pesan_hapus">Yakin ingin menghapus pesanan ini?</string>
     <string name="tombol_hapus">Hapus</string>
     <string name="tombol_batal">Batal</string>
+    <string name="grid">Tampilan grid</string>
+    <string name="list">Tampilan list</string>
 </resources>

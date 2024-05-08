@@ -18,10 +18,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.d3if0037.warungbapakpagi.model.Order
 import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
 
 @Composable
-fun GridItem(onClick: () -> Unit) {
+fun GridItem(order: Order, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -37,34 +38,34 @@ fun GridItem(onClick: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Text(
-                text = "Test",
+                text = order.nama,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "Total Harga",
+                text = order.harga,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 fontWeight = FontWeight.SemiBold
             )
             Text(
-                text = "catatan nya",
+                text = order.catatan,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis
             )
-            Text(text = "tanggalnya?")
+//            Text(text = "tanggalnya?")
         }
     }
 }
-
-@Preview(showBackground = true)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
-@Composable
-fun GridPreview() {
-    WarungBapakPagiTheme {
-        GridItem {
-
-        }
-    }
-}
+//
+//@Preview(showBackground = true)
+//@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+//@Composable
+//fun GridPreview() {
+//    WarungBapakPagiTheme {
+//        GridItem {
+//
+//        }
+//    }
+//}

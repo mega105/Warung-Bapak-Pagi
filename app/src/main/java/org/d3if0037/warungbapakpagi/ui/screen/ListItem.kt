@@ -13,10 +13,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.d3if0037.warungbapakpagi.model.Order
 import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
 
 @Composable
-fun ListItem(onClick: () -> Unit) {
+fun ListItem(order: Order, onClick: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -26,33 +27,33 @@ fun ListItem(onClick: () -> Unit) {
     )
     {
         Text(
-            text = "test",
+            text = order.nama,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = "Total Harga",
+            text = order.harga,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             fontWeight = FontWeight.Medium
         )
         Text(
-            text = "test panjang",
+            text = order.catatan,
             maxLines = 2,
             overflow = TextOverflow.Ellipsis
             )
-        Text(text = "masukin tanggal gk ya?")
+//        Text(text = "masukin tanggal gk ya?")
     }
 }
 
-@Preview(showBackground = true)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
-@Composable
-fun ListPreview() {
-    WarungBapakPagiTheme {
-        ListItem {
-
-        }
-    }
-}
+//@Preview(showBackground = true)
+//@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+//@Composable
+//fun ListPreview() {
+//    WarungBapakPagiTheme {
+//        ListItem {
+//
+//        }
+//    }
+//}
