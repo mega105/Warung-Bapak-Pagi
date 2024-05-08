@@ -38,10 +38,12 @@ import androidx.navigation.compose.rememberNavController
 import org.d3if0037.warungbapakpagi.R
 import org.d3if0037.warungbapakpagi.navigation.Screen
 import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
+import org.d3if0037.warungbapakpagi.util.SettingDataStore
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(navController: NavHostController) {
+    val dataStore = SettingDataStore(LocalContext.current)
     val context = LocalContext.current
 
     Scaffold(

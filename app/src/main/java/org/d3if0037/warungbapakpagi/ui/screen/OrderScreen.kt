@@ -63,6 +63,8 @@ import org.d3if0037.warungbapakpagi.navigation.Screen
 import org.d3if0037.warungbapakpagi.ui.theme.Purple80
 import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
 
+const val KEY_ID_ORDER = "idOrder"
+
 enum class Makanan(
     val nama: String,
     @DrawableRes val imageResId: Int,
@@ -76,7 +78,7 @@ enum class Makanan(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OrderScreen(navHostController: NavHostController) {
+fun OrderScreen(navHostController: NavHostController, id: Long? = null) {
     Scaffold(
         topBar = {
             TopAppBar(
