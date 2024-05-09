@@ -21,9 +21,14 @@
     <string name="tentang_aplikasi">About Application</string>
     <string name="tambah_error">Can not</string>
     <string name="tambah_pesanan">Add order</string>
+    <string name="ubah_pesanan">Edit order</string>
     <string name="pesan_hapus">Are you sure you want to delete this order?</string>
     <string name="tombol_hapus">Delete</string>
     <string name="tombol_batal">Cancel</string>
     <string name="grid">Grid view</string>
     <string name="list">List view</string>
+    <string name="empty_id">Choose one of the menus</string>
+    <string name="Simpan">Save</string>
+    <string name="opsi_lainnya">More options</string>
+    <string name="hapus">Delete order</string>
 </resources>

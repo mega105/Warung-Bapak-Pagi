@@ -1,4 +1,4 @@
-package org.d3if0037.warungbapakpagi.ui.screen
+package org.d3if0037.warungbapakpagi
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.d3if0037.warungbapakpagi.database.OrderDao
-import org.d3if0037.warungbapakpagi.model.Order
+import org.d3if0037.warungbapakpagi.database.model.Order
 
 class MainViewModel(val dao: OrderDao) : ViewModel() {
 
@@ -29,6 +29,9 @@ class MainViewModel(val dao: OrderDao) : ViewModel() {
         )
         viewModelScope.launch {
             dao.insert(order)
+            println("================================================")
+            println(order)
+            println("================================================")
         }
     }
 

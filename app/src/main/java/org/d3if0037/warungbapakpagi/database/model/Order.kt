@@ -1,4 +1,4 @@
-package org.d3if0037.warungbapakpagi.model
+package org.d3if0037.warungbapakpagi.database.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

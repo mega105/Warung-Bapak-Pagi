@@ -1,7 +1,6 @@
 package org.d3if0037.warungbapakpagi.ui.screen
 
 
-import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -38,25 +37,21 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.d3if0037.warungbapakpagi.MainViewModel
 import org.d3if0037.warungbapakpagi.R
-import org.d3if0037.warungbapakpagi.database.OrderDb
 import org.d3if0037.warungbapakpagi.navigation.Screen
-import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
 import org.d3if0037.warungbapakpagi.util.SettingDataStore
-import org.d3if0037.warungbapakpagi.util.ViewModelFactory
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(navController: NavHostController) {
+fun MainScreen(navController: NavHostController, viewModel: MainViewModel) {
     val dataStore = SettingDataStore(LocalContext.current)
     val showList by dataStore.layoutFlow.collectAsState(true)
 //    val context = LocalContext.current
@@ -88,6 +83,8 @@ fun MainScreen(navController: NavHostController) {
                             ),
                             tint = MaterialTheme.colorScheme.primary
                         )
+                    }
+                    IconButton(onClick = { navController.navigate(Screen.About.route) }) {
                         Icon(
                             imageVector = Icons.Outlined.Info,
                             contentDescription = stringResource(id = R.string.tentang_aplikasi),
@@ -109,16 +106,12 @@ fun MainScreen(navController: NavHostController) {
             }
         }
     ) { padding ->
-        ScreenContent(showList, Modifier.padding(padding), navController)
+        ScreenContent(showList, Modifier.padding(padding), navController, viewModel)
     }
 }
 
 @Composable
-fun ScreenContent(showList: Boolean, modifier: Modifier, navController: NavHostController) {
-    val context = LocalContext.current
-    val db = OrderDb.getInstance(context)
-    val factory = ViewModelFactory(db.dao)
-    val viewModel: MainViewModel = viewModel(factory = factory)
+fun ScreenContent(showList: Boolean, modifier: Modifier, navController: NavHostController, viewModel: MainViewModel) {
     val data by viewModel.data.collectAsState()
 
     if (data.isEmpty()) {
@@ -172,7 +165,7 @@ fun ScreenContent(showList: Boolean, modifier: Modifier, navController: NavHostC
                 columns = StaggeredGridCells.Fixed(2),
                 verticalItemSpacing = 8.dp,
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(8.dp, 8.dp, 8.dp, 8.dp)
+                contentPadding = PaddingValues(8.dp, 8.dp, 8.dp, 84.dp)
             ) {
                 items(data) {
                     GridItem (order = it) {
@@ -184,11 +177,12 @@ fun ScreenContent(showList: Boolean, modifier: Modifier, navController: NavHostC
     }
 }
 
-@Preview(showBackground = true)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
-@Composable
-fun GreetingPreview() {
-    WarungBapakPagiTheme {
-        MainScreen(rememberNavController())
-    }
-}
+//@Preview(showBackground = true)
+//@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    WarungBapakPagiTheme {
+//        val viewModel: MainViewModel = viewModel()
+//        MainScreen(rememberNavController(), viewModel)
+//    }
+//}

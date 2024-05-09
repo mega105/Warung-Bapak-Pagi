@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.d3if0037.warungbapakpagi.model.Order
+import org.d3if0037.warungbapakpagi.database.model.Order
 import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
 
 @Composable

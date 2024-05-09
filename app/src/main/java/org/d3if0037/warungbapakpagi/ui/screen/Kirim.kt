@@ -23,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -35,12 +36,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import kotlinx.coroutines.delay
 import org.d3if0037.warungbapakpagi.R
 import org.d3if0037.warungbapakpagi.ui.theme.WarungBapakPagiTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun KirimScreen(navController: NavHostController) {
+    LaunchedEffect(key1 = true,{
+        delay(3000L)
+        navController.popBackStack()
+        navController.popBackStack()
+    } )
     Scaffold(
         topBar = {
             TopAppBar(
@@ -99,16 +106,6 @@ fun ScreenKirim(modifier: Modifier, navController: NavHostController) {
                 textAlign = TextAlign.Center,
 //                modifier = Modifier.padding(horizontal = 24.dp)
             )
-            Button(
-                onClick = { navController.popBackStack() },
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(10.dp),
-            ) {
-                Text(
-                    text = stringResource(id = R.string.kembali),
-                    modifier = Modifier.padding(vertical = 8.dp)
-                )
-            }
         }
     }
 }

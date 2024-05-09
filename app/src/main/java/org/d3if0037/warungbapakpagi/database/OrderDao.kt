@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
-import org.d3if0037.warungbapakpagi.model.Order
+import org.d3if0037.warungbapakpagi.database.model.Order
 
 @Dao
 interface OrderDao {

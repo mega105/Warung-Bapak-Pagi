@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import org.d3if0037.warungbapakpagi.model.Order
+import org.d3if0037.warungbapakpagi.database.model.Order
 
 @Database(entities = [Order::class], version = 1, exportSchema = false)
 abstract class OrderDb : RoomDatabase() {
@@ -22,7 +22,7 @@ abstract class OrderDb : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         OrderDb::class.java,
-                        "order.db"
+                        "order_db"
                     ).build()
                     INSTANCE = instance
                 }
